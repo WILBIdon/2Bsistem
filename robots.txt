@@ -1,0 +1,27 @@
+# 2B Sistem - robots.txt
+# Permitir a todos los motores de búsqueda y agentes de IA indexar el sitio
+
+User-agent: *
+Allow: /
+
+# Agentes de IA específicos - bienvenidos
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://2bsistem.com/sitemap.xml
+
+# Archivo para agentes de IA
+# LLMs.txt: https://2bsistem.com/llms.txt

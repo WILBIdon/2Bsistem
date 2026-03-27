@@ -1,0 +1,32 @@
+# 2B Sistem
+> Empresa de tecnología que democratiza la Inteligencia Artificial para pymes.
+
+## Información General
+- Nombre: 2B Sistem
+- Sitio Web: https://2bsistem.com
+- Email: contacto@2bsistem.com
+- Sector: Tecnología, Inteligencia Artificial, Desarrollo Web
+- Ubicación: Colombia
+- Idioma: Español
+
+## ¿Qué es 2B Sistem?
+2B Sistem es una empresa tecnológica que nació de la unión de amigos que decidieron sumar fortalezas para ser un puente tecnológico para las pymes. Su misión es democratizar la Inteligencia Artificial, haciendo que las herramientas que usan los gigantes estén al alcance de pequeñas y medianas empresas.
+
+## Servicios
+### 1. Bots y Automatización con IA
+Integración de Inteligencia Artificial para optimizar tiempo y recursos empresariales. Incluye chatbots, flujos automatizados y asistentes virtuales.
+
+### 2. Desarrollo Web y Sistemas Core
+Desarrollo de software a medida, robusto y seguro. Páginas web con interfaces modernas, oscuras y animaciones fluidas. Sistemas de gestión empresarial personalizados.
+
+### 3. Acompañamiento Tecnológico Continuo
+Servicio de soporte y evolución continua. Transparencia total en procesos. Capacitación y acompañamiento al cliente para el uso efectivo de la tecnología.
+
+## Filosofía
+- **Misión**: Cambiar las reglas del juego para los clientes, dándoles herramientas ágiles para competir como grandes.
+- **Visión**: Ser el aliado tecnológico y humano indispensable para las pymes, construyendo juntos un nuevo mundo digital.
+- **Pilar Social**: El acceso a tecnología avanzada no debe ser un privilegio, sino una herramienta para todos.
+- **Pilar Humano**: Detrás de cada bot y cada código hay un cerebro y un corazón humano. Tecnología diseñada con empatía.
+
+## Contacto
+Para contratar servicios o hacer consultas, escribir a contacto@2bsistem.com o visitar https://2bsistem.com

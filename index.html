@@ -3,11 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2B Sistem - Evolución de Diseño Web</title>
-    <!-- Tailwind CSS para diseño moderno -->
+
+    <!-- ====== SEO BÁSICO ====== -->
+    <title>2B Sistem | Automatización con IA, Bots y Desarrollo Web para Pymes</title>
+    <meta name="description" content="2B Sistem democratiza la Inteligencia Artificial para pymes. Ofrecemos bots, automatizaciones, desarrollo web y sistemas a medida para que tu negocio compita como las grandes. Contacta hoy.">
+    <meta name="keywords" content="2B Sistem, automatización IA, bots inteligencia artificial, desarrollo web Colombia, sistemas a medida, chatbots para empresas, pymes tecnología, diseño web moderno, software empresarial, inteligencia artificial pymes">
+    <meta name="author" content="2B Sistem">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://2bsistem.com/">
+    <meta name="theme-color" content="#06b6d4">
+
+    <!-- ====== OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ====== -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="2B Sistem">
+    <meta property="og:title" content="2B Sistem | Automatización con IA, Bots y Desarrollo Web">
+    <meta property="og:description" content="Democratizamos la Inteligencia Artificial para pymes. Bots, automatizaciones y desarrollo web para que tu negocio compita como las grandes.">
+    <meta property="og:url" content="https://2bsistem.com/">
+    <meta property="og:image" content="https://2bsistem.com/logo.jpg">
+    <meta property="og:image:alt" content="Logo 2B Sistem">
+    <meta property="og:locale" content="es_CO">
+
+    <!-- ====== TWITTER CARD ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="2B Sistem | Automatización con IA, Bots y Desarrollo Web">
+    <meta name="twitter:description" content="Democratizamos la Inteligencia Artificial para pymes. Bots, automatizaciones y desarrollo web.">
+    <meta name="twitter:image" content="https://2bsistem.com/logo.jpg">
+
+    <!-- ====== FAVICON ====== -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+
+    <!-- ====== JSON-LD: Organización ====== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "2B Sistem",
+        "legalName": "2B Sistem",
+        "url": "https://2bsistem.com",
+        "logo": "https://2bsistem.com/logo.jpg",
+        "description": "Empresa de tecnología que democratiza la Inteligencia Artificial para pymes. Ofrecemos bots, automatizaciones, desarrollo web y sistemas a medida.",
+        "foundingDate": "2026",
+        "email": "contacto@2bsistem.com",
+        "sameAs": [],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contacto@2bsistem.com",
+            "contactType": "customer service",
+            "availableLanguage": ["es"]
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Colombia"
+        }
+    }
+    </script>
+
+    <!-- ====== JSON-LD: Sitio Web (para búsqueda por nombre) ====== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "2B Sistem",
+        "url": "https://2bsistem.com",
+        "description": "Automatización con IA, Bots y Desarrollo Web para Pymes",
+        "inLanguage": "es",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://2bsistem.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- ====== JSON-LD: Servicios Ofrecidos ====== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Servicios de 2B Sistem",
+        "itemListElement": [
+            {
+                "@type": "Service",
+                "position": 1,
+                "name": "Bots y Automatización con IA",
+                "description": "Integramos Inteligencia Artificial para que tu empresa compita como las grandes, optimizando tiempo y recursos con chatbots y flujos automatizados.",
+                "provider": { "@type": "Organization", "name": "2B Sistem" },
+                "serviceType": "Automatización empresarial"
+            },
+            {
+                "@type": "Service",
+                "position": 2,
+                "name": "Desarrollo Web y Sistemas Core",
+                "description": "Desarrollo de software a medida, robusto y seguro para el control total de tu negocio con interfaces modernas y rendimiento extremo.",
+                "provider": { "@type": "Organization", "name": "2B Sistem" },
+                "serviceType": "Desarrollo de software"
+            },
+            {
+                "@type": "Service",
+                "position": 3,
+                "name": "Acompañamiento Tecnológico Continuo",
+                "description": "Transparencia total. No te dejamos solo con la tecnología; te enseñamos a usarla y evolucionamos contigo.",
+                "provider": { "@type": "Organization", "name": "2B Sistem" },
+                "serviceType": "Consultoría tecnológica"
+            }
+        ]
+    }
+    </script>
+
+    <!-- ====== RECURSOS EXTERNOS ====== -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome para los íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <style>
         /* Desplazamiento suave */
         html { scroll-behavior: smooth; }
@@ -34,6 +143,7 @@
         .text-gradient {
             background: linear-gradient(to right, #06b6d4, #8b5cf6, #ec4899);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             background-size: 200% auto;
             animation: textShine 4s linear infinite;
