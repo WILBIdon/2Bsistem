@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rediseño Estratégico: Ángel Dulce Compañía | 2B Sistem</title>
+    <meta name="description" content="Propuesta de Optimización de Contenido para Dispositivos Móviles - Ángel Dulce Compañía. Presentado por Wilson Arango.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/jpeg" href="../logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        /* Custom scrollbar for slide content */
+        .slide-content::-webkit-scrollbar {
+            width: 4px;
+        }
+        .slide-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .slide-content::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        /* Touch swipe support */
+        .slide-container {
+            touch-action: pan-y;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4 font-sans">
+
+    <!-- Contenedor móvil -->
+    <div class="bg-gray-50 w-full max-w-md h-[800px] max-h-[90vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-4 border-gray-800">
+
+        <!-- Barra superior (Status bar simulada) -->
+        <div class="bg-gray-800 text-white text-xs px-4 py-1 flex justify-center">
+            <div class="w-1/3 h-1 bg-gray-400 rounded-full mt-1"></div>
+        </div>
+
+        <!-- Área de contenido de la diapositiva -->
+        <div id="slide-area" class="slide-content flex-1 overflow-y-auto p-6 pb-24 bg-gradient-to-b from-gray-50 to-gray-100">
+            <!-- El contenido se inyecta dinámicamente -->
+        </div>
+
+        <!-- Controles de navegación fijos abajo -->
+        <div class="absolute bottom-0 left-0 w-full bg-white border-t shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] p-4 flex items-center justify-between">
+            <button id="btn-prev" onclick="prevSlide()" class="p-2 rounded-full flex items-center text-blue-600 hover:bg-blue-50 active:bg-blue-100 transition">
+                <!-- ChevronLeft SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <span class="text-sm font-semibold ml-1">Atrás</span>
+            </button>
+
+            <div id="dots" class="flex space-x-1">
+                <!-- Dots generados dinámicamente -->
+            </div>
+
+            <button id="btn-next" onclick="nextSlide()" class="p-2 rounded-full flex items-center text-blue-600 hover:bg-blue-50 active:bg-blue-100 transition">
+                <span class="text-sm font-semibold mr-1">Sig</span>
+                <!-- ChevronRight SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    const slides = [
+        {
+            id: "portada",
+            title: null,
+            html: `
+                <div class="flex flex-col items-center justify-center h-full text-center space-y-6" style="min-height:60vh;">
+                    <h1 class="text-3xl font-bold text-blue-900 leading-tight">
+                        REDISEÑO ESTRATÉGICO: ÁNGEL DULCE COMPAÑÍA
+                    </h1>
+                    <div class="bg-blue-100 p-4 rounded-lg">
+                        <p class="text-lg font-semibold text-blue-800">
+                            Propuesta de Optimización de Contenido para Dispositivos Móviles
+                        </p>
+                    </div>
+                    <p class="text-gray-600 italic mt-8">
+                        Presentado por: Wilson Arango
+                    </p>
+                </div>
+            `
+        },
+        {
+            id: "reto",
+            title: "📱 EL RETO ACTUAL",
+            html: `
+                <div class="space-y-4">
+                    <p class="text-gray-700">
+                        Actualmente, el sitio web tiene excelente información, pero está redactado como un documento institucional.
+                    </p>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 mt-4">
+                        <p class="font-bold text-gray-800 mb-2">¿Por qué esto es un problema?</p>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Quien busca un cuidador suele estar estresado y sin tiempo.</li>
+                            <li>Los "muros de texto" en el celular generan abandono (la gente se va sin leer).</li>
+                            <li>Se oculta el verdadero valor: la empatía y la tranquilidad.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200 mt-4">
+                        <p class="text-green-800">
+                            <strong>La Solución:</strong> Textos cortos, directos y enfocados en el alivio familiar.
+                        </p>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: "inicio",
+            title: "🏠 1. PÁGINA: INICIO",
+            html: `
+                <div class="space-y-4">
+                    <p class="font-semibold text-gray-800">El objetivo: Enganchar en los primeros 3 segundos.</p>
+
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                        <p class="font-bold text-red-800 mb-2">❌ EL ANTES (Lo que se tiene):</p>
+                        <p class="text-gray-700 italic text-sm">
+                            "Con el servicio de cuidador cumplimos el rol de un Ángel que ofrece dulce compañía, cuando permiten que nos hagamos cargo de los seres más queridos. Nuestra esencia es &ldquo;apoyar y acompañar&rdquo;. El perfil de nuestro cuidador es..." (Párrafos muy largos).
+                        </p>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <p class="font-bold text-green-800 mb-2">✅ EL DESPUÉS (Lo que proponemos):</p>
+                        <div class="text-gray-800 text-sm space-y-2">
+                            <p><strong>Cuidamos a quienes más amas, mientras tú recuperas tu tranquilidad.</strong></p>
+                            <p>Acompañamiento profesional para adultos mayores en Medellín. No reemplazamos tu labor, la apoyamos para que tu hogar recupere la armonía.</p>
+                            <p class="font-bold mt-2">Nuestros 3 pilares:</p>
+                            <ol class="list-decimal pl-5 space-y-1">
+                                <li><strong>Apoyo familiar:</strong> Descansa sabiendo que están en buenas manos.</li>
+                                <li><strong>Personal estable:</strong> La misma cuidadora para generar confianza.</li>
+                                <li><strong>Seguridad total:</strong> Personal rigurosamente seleccionado.</li>
+                            </ol>
+                            <div class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-full text-center w-full font-semibold">
+                                (Botón: Hablar con un asesor)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: "tarifas",
+            title: "💰 2. PÁGINA: TARIFAS Y PLANES",
+            html: `
+                <div class="space-y-4">
+                    <p class="font-semibold text-gray-800">El objetivo: Claridad absoluta, sin letra pequeña.</p>
+
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                        <p class="font-bold text-red-800 mb-2">❌ EL ANTES (Lo que se tiene):</p>
+                        <p class="text-gray-700 italic text-sm">
+                            Textos extensos explicando la diferencia entre horas, responsabilidades legales, seguridad social, riesgos laborales y el rol del cuidador familiar antes de llegar al precio.
+                        </p>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <p class="font-bold text-green-800 mb-2">✅ EL DESPUÉS (Lo que proponemos):</p>
+                        <div class="text-gray-800 text-sm space-y-3">
+                            <p><strong>Planes adaptados a la necesidad de tu familia</strong></p>
+                            <p>Nuestras tarifas son integrales. <em>Incluyen: Seguridad Social (Salud, Pensión, ARL), transporte y alimentación del cuidador.</em> ¡Cero trámites para ti!</p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li><strong>Plan Respiro (8 horas/día):</strong> $2.460.000 / mes. Ideal para retomar tu jornada laboral.</li>
+                                <li><strong>Plan Bienestar (12 horas - Día o Noche):</strong> $2.990.000 / mes. Mayor vigilancia diurna o descanso nocturno para la familia.</li>
+                                <li><strong>Plan Integral (24 horas):</strong> $5.830.000 / mes. Cuidado permanente con dos cuidadoras asignadas.</li>
+                            </ul>
+                            <div class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-full text-center w-full font-semibold">
+                                (Botón: Contratar un plan)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: "faq",
+            title: "❓ 3. PÁGINA: PREGUNTAS FRECUENTES (FAQ)",
+            html: `
+                <div class="space-y-4">
+                    <p class="font-semibold text-gray-800">El objetivo: Resolver dudas rápido usando un menú desplegable (Acordeón).</p>
+
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                        <p class="font-bold text-red-800 mb-2">❌ EL ANTES (Lo que se tiene):</p>
+                        <p class="text-gray-700 italic text-sm">
+                            10 preguntas con respuestas de hasta 6 renglones cada una, todo expuesto al mismo tiempo saturando la pantalla.
+                        </p>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <p class="font-bold text-green-800 mb-2">✅ EL DESPUÉS (Lo que proponemos):</p>
+                        <p class="text-xs text-gray-500 mb-2 italic">(El usuario solo ve la pregunta y toca para leer la respuesta)</p>
+                        <div class="text-gray-800 text-sm space-y-3">
+                            <div class="bg-white p-3 rounded border border-green-100">
+                                <p class="font-bold">🔽 ¿El servicio es costoso?</p>
+                                <p class="mt-1 text-gray-600">Ofrecemos la tarifa más competitiva del mercado. Solo pagas las horas efectivamente laboradas.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border border-green-100">
+                                <p class="font-bold">🔽 ¿Qué seguridad ofrecen?</p>
+                                <p class="mt-1 text-gray-600">Máxima. Realizamos visitas domiciliarias, exámenes médicos y pruebas de seguridad antes de asignar un cuidador.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border border-green-100">
+                                <p class="font-bold">🔽 ¿Atienden en hospitales?</p>
+                                <p class="mt-1 text-gray-600">Sí, ofrecemos acompañamiento tanto en el domicilio como en clínicas e instituciones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: "contacto",
+            title: "🤝 4. PÁGINAS: TRABAJA CON NOSOTROS Y CONTACTO",
+            html: `
+                <div class="space-y-4">
+                    <p class="font-semibold text-gray-800">El objetivo: Formularios limpios y directos.</p>
+
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                        <p class="font-bold text-red-800 mb-2">❌ EL ANTES (Lo que se tiene):</p>
+                        <p class="text-gray-700 italic text-sm">
+                            Textos introductorios redundantes antes de llegar a los campos a llenar.
+                        </p>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <p class="font-bold text-green-800 mb-2">✅ EL DESPUÉS (Lo que proponemos):</p>
+                        <div class="text-gray-800 text-sm space-y-4">
+                            <div>
+                                <p class="font-bold border-b pb-1 mb-2">Trabaja con Nosotros</p>
+                                <p class="italic">Únete a nuestro equipo. Buscamos personas con vocación, respeto y honestidad.</p>
+                                <p class="mt-1 text-gray-500">(Formulario simplificado: Nombre, Celular, CV).</p>
+                            </div>
+                            <div>
+                                <p class="font-bold border-b pb-1 mb-2">Contacto</p>
+                                <p class="italic">¿Tienes dudas? Escríbenos y te responderemos en menos de 24 horas.</p>
+                                <p class="mt-1 text-gray-500">(Formulario simple + Botón directo a WhatsApp).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: "resumen",
+            title: "🎯 RESUMEN DE BENEFICIOS",
+            html: `
+                <div class="flex flex-col justify-center space-y-6" style="min-height:60vh;">
+                    <h2 class="text-2xl font-bold text-blue-900 text-center mb-4">PARA ÁNGEL DULCE COMPAÑÍA</h2>
+
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-blue-500">
+                            <p class="font-bold text-gray-800 text-lg">1. Página más rápida</p>
+                            <p class="text-gray-600 mt-1">Al reducir texto pesado, carga mejor en celulares.</p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-green-500">
+                            <p class="font-bold text-gray-800 text-lg">2. Mayor conversión</p>
+                            <p class="text-gray-600 mt-1">La gente entiende rápido qué venden y cuánto cuesta, lo que genera más contactos por WhatsApp.</p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl shadow-sm border-l-4 border-purple-500">
+                            <p class="font-bold text-gray-800 text-lg">3. Imagen Profesional</p>
+                            <p class="text-gray-600 mt-1">Se proyecta seguridad, modernidad y, sobre todo, empatía con el dolor del cliente.</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    let currentSlide = 0;
+
+    function renderSlide() {
+        const slide = slides[currentSlide];
+        const area = document.getElementById('slide-area');
+
+        let titleHTML = '';
+        if (slide.title) {
+            titleHTML = `<h2 class="text-xl font-bold text-blue-900 mb-6 border-b-2 border-blue-200 pb-2">${slide.title}</h2>`;
+        }
+
+        area.innerHTML = `${titleHTML}<div class="animate-fadeIn">${slide.html}</div>`;
+        area.scrollTop = 0;
+
+        // Update dots
+        const dotsContainer = document.getElementById('dots');
+        dotsContainer.innerHTML = slides.map((_, i) =>
+            `<div class="h-2 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-blue-600' : 'w-2 bg-gray-300'}"></div>`
+        ).join('');
+
+        // Update button states
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        if (currentSlide === 0) {
+            btnPrev.classList.add('text-gray-300', 'cursor-not-allowed');
+            btnPrev.classList.remove('text-blue-600', 'hover:bg-blue-50', 'active:bg-blue-100');
+        } else {
+            btnPrev.classList.remove('text-gray-300', 'cursor-not-allowed');
+            btnPrev.classList.add('text-blue-600', 'hover:bg-blue-50', 'active:bg-blue-100');
+        }
+
+        if (currentSlide === slides.length - 1) {
+            btnNext.classList.add('text-gray-300', 'cursor-not-allowed');
+            btnNext.classList.remove('text-blue-600', 'hover:bg-blue-50', 'active:bg-blue-100');
+        } else {
+            btnNext.classList.remove('text-gray-300', 'cursor-not-allowed');
+            btnNext.classList.add('text-blue-600', 'hover:bg-blue-50', 'active:bg-blue-100');
+        }
+    }
+
+    function nextSlide() {
+        if (currentSlide < slides.length - 1) {
+            currentSlide++;
+            renderSlide();
+        }
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            renderSlide();
+        }
+    }
+
+    // Soporte para swipe en móvil
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.getElementById('slide-area').addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    document.getElementById('slide-area').addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+        }
+    }, { passive: true });
+
+    // Soporte para teclas de flecha
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // Renderizar la primera diapositiva
+    renderSlide();
+    </script>
+
+</body>
+</html>
