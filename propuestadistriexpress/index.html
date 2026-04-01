@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-slate-50 text-slate-900 select-none">
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
@@ -288,7 +288,15 @@
                 </a>
             </div>
             
-            <div class="mt-24 pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8 opacity-60">
+            <!-- Aviso Legal de Confidencialidad -->
+            <div class="mt-20 pt-10 border-t border-slate-200">
+                <p class="text-[10px] text-slate-500 text-center uppercase tracking-wider font-bold mb-3">Aviso de Confidencialidad y Propiedad Intelectual</p>
+                <p class="text-[10px] text-slate-400 text-center max-w-4xl mx-auto leading-relaxed italic">
+                    Toda la información contenida en esta propuesta técnica, comercial y operativa es propiedad intelectual y material de confidencialidad exclusiva de <strong>2B SISTEM</strong>. La reproducción total o parcial, copia, distribución, o el desarrollo e implementación independiente de las soluciones aquí expuestas sin nuestro consentimiento formal y por escrito, constituye una violación legal de derechos de autor y propiedad industrial aplicable.
+                </p>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8 opacity-60">
                 <div class="flex items-center gap-4">
                     <div class="flex items-center gap-1 font-bold text-xs"><i data-lucide="zap" class="w-3 h-3"></i> Automatización Inteligente</div>
                     <div class="flex items-center gap-1 font-bold text-xs"><i data-lucide="shield-check" class="w-3 h-3"></i> API Secure</div>
@@ -300,6 +308,14 @@
 
     <script>
         lucide.createIcons();
+
+        // Medidas de protección de contenido y propiedad intelectual
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('copy', event => {
+            event.preventDefault();
+            alert('Aviso Legal: El contenido de esta propuesta es estrictamente confidencial y propiedad exclusiva e intelectual de 2B Sistem. La copia o extracción no autorizada está prohibida.');
+        });
+        document.addEventListener('dragstart', event => event.preventDefault());
     </script>
 </body>
 </html>
